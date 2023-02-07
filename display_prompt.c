@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:25:00 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/06 16:53:29 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/07 13:33:21 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void    display_prompt(void)
 {
     char *input;
     char    **tmp;
+    int i;
     
+    i = 1;
     init_prompt()  ;
     input = readline("$ ");
     tmp = ft_split(input, ' ');
@@ -45,7 +47,15 @@ void    display_prompt(void)
     else if (ft_strcmp(tmp[0], "cd") == 0)
         ft_cd(tmp[1]);
     else if (ft_strcmp(tmp[0], "echo") == 0)
-        ft_echo(ft_split(input, ' '));
+    {
+        while (tmp[i])
+        {
+            ft_echo(tmp[i], -1, 0);
+            printf("%c", ' ');
+            i++;
+        }
+        printf("%c", '\n');
+    }
     add_history(input);
     free(input);
     return ;
