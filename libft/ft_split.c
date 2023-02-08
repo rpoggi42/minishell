@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpoggi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:32:52 by rpoggi            #+#    #+#             */
-/*   Updated: 2022/02/08 17:27:07 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/08 11:26:10 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ char	**ft_split(const char *s, char c)
 	size_t	i;
 	size_t	len;
 
-	if (!s)
-		return (0);
 	i = 0;
 	str = malloc(sizeof(char *) * (get_word(s, c) + 1));
-	if (!str)
+	if (!str || !s)
 		return (0);
 	while (*s)
 	{
@@ -51,6 +49,7 @@ char	**ft_split(const char *s, char c)
 			while (*s && *s != c && ++len)
 				++s;
 			str[i++] = ft_substr(s - len, 0, len);
+			free(ft_substr(s - len, 0, len));
 		}
 		else
 			++s;

@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:25:00 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/08 10:04:39 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/08 13:25:55 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,29 @@ void    clear_and_history(char *input, char **tmp)
     return ;
 }
 
+void    ft_ls(void) 
+{
+    pid_t   pid;
+    char cwd[1024];
+    char *args[] = {"ls", cwd, NULL};
+
+    pid = fork();
+    if (pid == 0)
+    {   
+        if (getcwd(cwd, sizeof(cwd)) == NULL)
+            exit(1);
+        if (execve("/bin/ls", args, NULL) == -1)
+            exit(1);
+    }
+    else
+    {
+        if (wait(NULL) == -1)
+            exit(1);
+    }
+    return ;
+}
+
+
 void    display_prompt(int i, char *input)
 {
     char    **tmp;
@@ -68,6 +91,10 @@ void    display_prompt(int i, char *input)
     }
     else if (ft_strcmp(input, "pwd") == 0)
         ft_pwd();
+    else if (ft_strcmp(input, "ls") == 0)
+        ft_ls();
+    else if (ft_strcmp(tmp[0], "export") == 0)
+        ft_export(tmp);
     clear_and_history(input, tmp);
     return ;
 }

@@ -18,6 +18,7 @@ SRC=$(SRC_DIR)/ft_putchar_fd.c \
 	builtins/ft_cd.c \
 	builtins/ft_echo.c \
 	builtins/ft_pwd.c \
+	builtins/ft_export.c \
 	display_prompt.c \
 	main.c
 
