@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 14:42:52 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/07 15:46:51 by rpoggi           ###   ########.fr       */
+/*   Created: 2023/02/08 09:58:53 by rpoggi            #+#    #+#             */
+/*   Updated: 2023/02/08 10:04:53 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-int main()
+void    ft_pwd(void)
 {
-    while (1)
-    {    
-        init_prompt();
-        display_prompt(0, readline("$ "));
-    }
-    return 0;
+    char    cwd[1024];
+
+    if (getcwd(cwd, sizeof(cwd)) != NULL)
+        printf("%s\n", cwd);
+    return;
 }
