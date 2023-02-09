@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:15:19 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/08 10:55:30 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/09 13:15:09 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-int	ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 size_t	get_word(const char *s, char c);
@@ -33,8 +33,11 @@ char	**ft_split(const char *s, char c);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s);
-int	ft_strlen(const char	*str);
+int		ft_strlen(const char	*str);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strcpy(char *dest, char *src);
+char	*ft_strcat(char *dest, char *src);
 
 #endif

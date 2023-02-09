@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:30:17 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/08 13:32:07 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/09 13:05:33 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ char    *check_echo(char *args, int i, int j, char *tmp);
 void    ft_pwd(void);
 void    ft_ls(void) ;
 void    ft_export(char **args);
-void    set_environment_variable(char *key, char *value);
 void    print_env(void);
 #endif
