@@ -6,26 +6,11 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:25:00 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/08 13:25:55 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/16 03:03:41 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void    init_prompt(void)
-{
-    char    cwd[1024];
-    char    *username = getenv("USER");
-    char    computername[1024];
-    
-    if (username != NULL)
-        printf("\033[0;31m%s@\033[0m", username);
-    if (gethostname(computername, 1024) == 0)
-        printf("\033[0;31m%s\033[0m:", computername);
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-        printf("\033[0;33m~%s\033[0m", &cwd[12]);   
-    return ; 
-}
 
 int    protection(char *input, char **tmp)
 {

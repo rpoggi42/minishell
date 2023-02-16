@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:30:17 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/09 13:05:33 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/16 00:39:02 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <sys/wait.h>
 
 void    display_prompt(int i, char *input);
-void    init_prompt(void);
+char    *init_prompt(char *username, char *str);
 int		ft_cd(char *args);
 void    ft_echo_one(char *args, int i, int j, int size);
 int    protection(char *input, char **tmp);
