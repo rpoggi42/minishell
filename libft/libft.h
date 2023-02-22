@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:15:19 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/09 13:15:09 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/21 22:32:58 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ char	*ft_strstr(char *str, char *to_find);
 char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strcpy(char *dest, char *src);
-char	*ft_strcat(char *dest, char *src);
+char	*ft_strcat(char *dest, const char *src);
 
 #endif

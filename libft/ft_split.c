@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:32:52 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/08 11:26:10 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:22:27 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	str = malloc(sizeof(char *) * (get_word(s, c) + 1));
 	if (!str || !s)
-		return (0);
+		return (NULL);
 	while (*s)
 	{
 		if (*s != c)

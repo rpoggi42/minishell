@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpoggi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 09:40:36 by rpoggi            #+#    #+#             */
-/*   Updated: 2021/10/12 09:40:50 by rpoggi           ###   ########.fr       */
+/*   Created: 2014/08/06 17:42:38 by ybarbier          #+#    #+#             */
+/*   Updated: 2023/02/21 22:33:02 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+#include "libft.h"
 
+char *ft_strcat(char *dest, const char *src)
 {
-	int	is;
-	int	id;
+	size_t i;
+	size_t src_len;
+	size_t dest_len;
 
-	is = 0;
-	id = 0;
-	while (dest[id] != '\0')
+	i = 0;
+	src_len = ft_strlen(src);
+	dest_len = ft_strlen(dest);
+
+    if (dest == NULL || src == NULL)
+        return (NULL);
+    while (i < src_len)
 	{
-		id++;
-	}
-	while (src[is] != '\0')
-	{
-		dest[id] = src[is];
-		is++;
-		id++;
-	}
-	dest[id] = '\0';
-	return (dest);
+        dest[dest_len + i] = src[i];
+		i++;
+    }
+
+    dest[dest_len + src_len] = '\0';
+
+    return dest;
 }
+
