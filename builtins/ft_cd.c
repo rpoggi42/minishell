@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:08:19 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/06 16:03:29 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/24 18:47:17 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,11 @@ int		ft_cd(char *args)
 		env_path = getenv("OLDPWD");
 	else
 		env_path = args;
-	if (!env_path)
-	{
-		ft_putstr_fd("minishell: cd: ", 2);
-		ft_putstr_fd(args, 2);
-		ft_putendl_fd(": No such file or directory", 2);
-		return (1);
-	}
 	cd_ret = chdir(env_path);
-	if (cd_ret < 0)
+	if (!env_path || cd_ret < 0)
 	{
-		ft_putstr_fd("minishell: cd: ", 2);
-		ft_putstr_fd(args, 2);
-		ft_putendl_fd(": No such file or directory", 2);
-		return (1);
+		printf("minishell: cd: %s: No such file or directory\n", args);
+		return (0);
 	}
-	return (0);
+	return (1);
 }

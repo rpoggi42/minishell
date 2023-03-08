@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:16:40 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/07 16:14:16 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/25 11:27:17 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char    *check_echo(char *args, int i, int j, char *tmp)
             quotes++;
         else if(args[i] == '\'' && quotes % 2 == 0)
             quote++;
-        else if((args[i] == '\"' && quote % 2 == 1) || 
+        else if((args[i] == '\"' && quote % 2 == 1) ||
                 (args[i] == '\'' && quotes % 2 == 1))
                     tmp[j++] = args[i];
         else
@@ -34,15 +34,15 @@ char    *check_echo(char *args, int i, int j, char *tmp)
     return (tmp);
 }
 
-void ft_echo_one(char *args, int i, int j, int size)
+int ft_echo(char *args, int i, int j)
 {
     char *tmp;
 
-    tmp = malloc(size * sizeof(char));
+    tmp = malloc(ft_strlen(args) * sizeof(char));
     if (!tmp)
-        return;
+        return (0);
     tmp[j] = '\0';
-    printf("%s", check_echo(args, i, j, tmp));
+    printf("%s\n", check_echo(args, i, j, tmp));
     free(tmp);
-    return ;
+    return (1);
 }

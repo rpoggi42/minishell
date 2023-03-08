@@ -6,7 +6,7 @@
 /*   By: rpoggi <rpoggi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:42:52 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/22 15:00:04 by rpoggi           ###   ########.fr       */
+/*   Updated: 2023/02/28 12:07:38 by rpoggi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,35 @@ char    *init_prompt(char *username, char *str)
     return (str); 
 }
 
+void    free_matrix(char **matrix)
+{
+    int i;
+
+    i = 0;
+    while (matrix[i])
+    {
+        free(matrix[i]);
+        i++;
+    }
+    free(matrix);
+    return ;
+}
+
 int main(int argc, char **argv, char **envp)
 {
     (void)argc;
 	(void)argv;
-    char    *prompt;
-    char    *input;
-    char    *stringa;
+    char *input;
+    char **myenvp = envp_cop(envp, 0, 0);
 
-    
-    while (1)
+    while ((input = readline(init_prompt(getenv("LOGNAME"), NULL))) != NULL)
     {
-        prompt = NULL;
-        stringa = init_prompt(getenv("LOGNAME"), prompt);
-        input = malloc(sizeof(char) * 1024);
-        input = readline(stringa);
-            add_history(input);
-        if (ft_strlen(input) == 0)
-        {
-            free(input);
-            continue;
-        }
-        else
-        {
-            display_prompt(input, envp);
-        }
+        add_history(input);
+        if (ft_strlen(input) != 0)
+            display_prompt(input, myenvp);
         free(input);
-        free(prompt);
     }
+
+    free_matrix(myenvp);
     return 0;
 }

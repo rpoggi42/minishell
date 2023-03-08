@@ -18,6 +18,8 @@ SRC=$(SRC_DIR)/ft_putchar_fd.c \
 	$(SRC_DIR)/ft_strncmp.c \
 	$(SRC_DIR)/ft_strcpy.c \
 	$(SRC_DIR)/ft_strcat.c \
+	$(SRC_DIR)/ft_memcpy.c	\
+	$(SRC_DIR)/ft_strjoin.c	\
 	builtins/ft_cd.c \
 	builtins/ft_echo.c \
 	builtins/ft_pwd.c \
